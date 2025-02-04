@@ -1,11 +1,23 @@
 from tkinter import *
+import tkinter as tk
 
 
 
-window = Tk()
+window = tk.Tk()
 window.geometry('800x400')
+background_image = tk.PhotoImage(file="D:\\mrmaz\\Documents\\SWE Orange\\final project\\5-41.png")  # استبدل هذا بمسار الصورة الخاصة بك
+label = tk.Label(window, image=background_image)
+label.place(x=0, y=0, relwidth=1, relheight=1)
+current_image = background_image
 
-
+def swich_mode():
+    global current_image
+    if current_image == background_image:
+        current_image = tk.PhotoImage(file="D:\\mrmaz\\Documents\\SWE Orange\\final project\\jerusalem-4296503_960_720.png")
+    else:
+        current_image = background_image
+    
+    label.configure(image=current_image)
 def end():
     window.destroy()
     
@@ -48,7 +60,8 @@ exit_button = Button(window, text='Exit', bg='green',
 exit_button.place(x=500, y=250)
 
 nitemode_button = Button(window, text='Nite Or Light Mode', bg='black',fg='white',
-                font=('times new roman', 25))
+                font=('times new roman', 25), command=swich_mode)
 nitemode_button.place(x=290, y=325)
+
 
 window.mainloop()
