@@ -19,6 +19,7 @@ def swich_mode():
     
     label.configure(image=current_image)
 def end():
+    
     window.destroy()
     
 def check():
