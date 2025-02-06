@@ -23,11 +23,11 @@ def end():
     window.destroy()
     
 def check():
-    user_input = user_entry.get().strip()  
+    user_input = user_entry.get().strip().replace(' ', '')  
     
     with open('D:\\mrmaz\\Documents\\SWE Orange\\day3\\Boycott Brands.txt') as file:
         content = file.readlines()  
-        content = [line.strip() for line in content] 
+        content = [line.strip().replace(' ', '') for line in content] 
         
         
         for brand in content:
